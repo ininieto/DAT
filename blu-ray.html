@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+
+<html>
+
+  <head>
+    <title> Compra / Blu-Ray </title>
+    <meta charset=UTF-8  />
+
+    
+	<div id = "header"> La Casa del Disco </div>
+
+    <!-- <img id = logo src = logo.png/> -->
+
+    <div id=headerCompra> </div>
+
+    <link rel = stylesheet href = estilo.css />
+    <link rel = stylesheet href = estiloFormularioLogIn.css />
+	  <link rel = stylesheet href = estiloCompra.css />
+	
+  </head>
+  
+ 
+
+	<body>
+	
+	
+	<!--Para que haya un menú desplegable en todas las subpáginas, y además puedas
+      volver más facilmente al menú principal-->
+    
+      <div class = "navbar">
+	
+        <a href = "formulariologin.php" id = "login"> Login</a>
+        <a href = "videoclip.html"> Videoclips</a>
+        <a href = "#ReservadeLanzamiento" id = "reserva_lanzamiento"> Reserva de Lanzamiento</a>
+        <a href = "index.php"> Menú Principal</a>
+        <div class = "dropdown">
+        
+        <button class = "dropbtn"> Comprar
+          <i class = "fa fa-caret-down"></i>
+        </button>
+        
+          <div class = "dropdown-content">
+            <a href = "vinilos.html" id = "vinilos">Vinilos</a>
+            <a href = "discos.html" id = "CDs">CD´s</a>
+            <a href = "blu-ray.html" id = "Blu-ray">Blu-Ray</a>
+          </div>
+        
+        </div>
+       
+      </div>
+	  
+
+    <figure class = "producto" onclick = "alert('Todavía no se puede comprar')" > <!-- Ponemos un figure para añadir cómodamente un pie de página -->
+
+      <img src = "imagenes/el_rey_leon.jpg" 
+           width="200"
+           alt = "El Rey León 10,99 $"
+           class = "foto">
+
+      <figcaption> El Rey León  <br/> 10,99 $ <br/> COMPRAR</figcaption> 
+
+    </figure>
+
+
+
+    <figure class = "producto" onclick = "alert('Todavía no se puede comprar')"> <!-- Ponemos un figure para añadir cómodamente un pie de página -->
+
+      <img src = "imagenes/cinema_paradiso.jpg" 
+           width="200"
+           alt = "Cinema Paradiso"
+           class = "foto">
+
+      <figcaption > Cinema Paradiso <br/> 10,99 $ <br/> COMPRAR </figcaption> 
+
+    </figure>
+
+
+    </table>
+	
+    <script src = "tienda.js"> </script>
+	
+  </body>
+	
+	
+</html>

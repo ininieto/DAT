@@ -1,0 +1,195 @@
+body{
+	background-color: black;
+	color: white;
+}
+
+#header{
+	
+	color:white;
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 20 px;
+	font-size: 40px;
+	border:solid white 2px;
+	
+}
+
+
+#menu
+{ /*Con # se definen las caracteristicas de los id*/
+	background-color: #333;
+	color: white;
+	padding: 10px;
+	
+	text-align: center;
+	font-family: verdana;
+	
+}
+
+.navitem /*Así se definen los items para clases*/
+{
+	
+	padding: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	color: white;
+	
+	
+	cursor: pointer; /*Para que el cursor cambie cuando pasas por un link*/
+	
+	
+}
+
+/*TODO ESTO ES PARA PONER UN MENÚ DESPLEGABLE*/
+
+	
+	.navbar {
+	  overflow: hidden;
+	  background-color: #333;
+	  font-family: verdana;
+	}
+
+	/* Opciones del menú */
+	.navbar a {
+	  float: left;
+	  font-size: 16px;
+	  
+	  color: white;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+
+	  background-color: #333;
+
+	}
+
+	/* Escondemos lo que hay en comprar */
+	.dropdown {
+	  float: left;
+	  overflow: hidden;
+	}
+
+	/* Botón desplegable */
+	.dropdown .dropbtn {
+	  font-size: 16px;
+	  border: solid white;
+	  outline: none;
+	  color: white;
+	  padding: 14px 16px;
+	  background-color: inherit;
+	  cursor: pointer; /* Cambia el cursor por una manita */
+	}
+
+	/* Cuando se pasa el raton por las distintas opciones el fondo cambia negro */
+	.navbar a:hover, .dropdown:hover .dropbtn {
+	  background-color: black;
+	}
+
+	/* Dropdown content (hidden by default) */
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #333;
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+
+	/* Links inside the dropdown */
+	.dropdown-content a {
+	  float: none;
+	  color: white;
+	  padding: 12px 16px;
+	  text-decoration: none;
+	  display: block;
+	  text-align: left;
+	}
+
+	/* Add a grey background color to dropdown links on hover */
+	.dropdown-content a:hover {
+	  background-color: #333;
+	}
+
+	/* Show the dropdown menu on hover */
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+
+/*FIN MENÚ DESPLEGABLE*/
+
+
+
+/*El calendario en sí*/
+.mifecha {
+
+   background-color: white;
+   padding: 2px;
+   width: 110px;
+   text-align: center;
+   font-family:verdana,arial;
+   font-size: 12pt;
+   
+
+   position: absolute;
+   bottom: 0px;
+   right: 0px;
+ 
+}
+.ano{
+   background-color: white;
+   padding: 2px;
+   font-size: 100%;
+   margin-bottom: 3px;
+   color: black;
+   letter-spacing: 3px;
+   font-weight: bold;
+}
+.dia{
+   background-color:black;
+   color:white;
+   font-size: 300%;
+   padding: 5px 8px;
+   margin-bottom: 3px;
+   font-weight: bold;
+}
+.mes{
+   background-color: grey;
+   font-size: 80%;
+   padding: 2px;
+   color: white;
+   font-weight: bold;
+}
+
+.fondo{
+	display: block;
+	margin: auto;
+}
+
+#contacto{
+
+	color: black;
+	padding: 2px;
+	background-color: lightgray;
+	width: 70px;
+	text-align: center;
+
+	cursor: pointer; /* Cambia el cursor por una manita */
+
+	position: absolute; /* Centramos el botón */
+	bottom: 10px;
+	right: 25%;
+	left: 50%;
+	margin-left: -35px;
+}
+
+#infoContacto{
+	color: white;
+
+	position: absolute; /* Centramos el botón */
+	bottom: 50px;
+	
+	left: 35%;
+	right: 35%;
+	
+	text-align: center;
+}

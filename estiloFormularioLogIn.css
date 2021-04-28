@@ -1,0 +1,48 @@
+body{
+    color: white;
+
+}
+
+.formulario{
+	
+    color: white;
+    margin-top: 50px;
+
+    font-size: 17px;
+
+}
+
+
+
+.identificate{
+
+    padding-left: 30px;
+    padding-right: 30px;
+
+    text-align: left;
+}
+
+#user{
+
+    margin-left: 21px; /* Margen para alinear los dos cuadros de texto */
+
+
+}
+
+.registrarse{
+
+    color: white;
+    position: relative;
+
+    font-size: 17px;
+
+    left: 20px; /* Conseguimos que esté alineado con el fieldset de arriba */
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    background-color:lightgrey;
+    padding: 2px;
+    border: solid white;
+}

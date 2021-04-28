@@ -1,0 +1,25 @@
+body{
+    color: white;
+}
+
+.registro{
+
+    color: white;
+    
+    padding-left: 30px;
+    padding-right: 30px;
+
+    text-align: left;
+}
+
+label{
+
+    
+    display: inline-block; /* Necesitamos esta propiedad para alinear los input */
+    width: 160px;
+
+}
+
+#texto{
+    color: white;
+}
