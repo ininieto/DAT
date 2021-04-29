@@ -31,11 +31,19 @@ echo ' <br><br> <table border = "1"> <tr>
 for($i = 0; $i < $num; $i++){
 
     $row = mysqli_fetch_array($resultado); //toma una fila de la base de datos
+
+    //Ponemos en notación normal la fecha
+    $fecha = $row['fecha_nacimiento'];
+    $fecha_array = explode('-', $fecha);
+    $fecha_array = array_reverse($fecha_array); 
+    $fecha = implode('/', $fecha_array);
+
+
     echo '<tr> ';
     echo '<td>'.$row['nombre'].'</td>';
     echo '<td>'.$row['apellidos'].'</td>';
     echo '<td>'.$row['email'].'</td>';
-    echo '<td>'.$row['fecha_nacimiento'].'</td>';
+    echo '<td>'.$fecha.'</td>';
     echo '<td>'.$row['telefono'].'</td>';
 
     echo'<td> <a href = "ver_usuario.php?id_usuario='.$row['id_usuario'].'"> Ver </a> </td>';

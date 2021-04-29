@@ -10,7 +10,6 @@ $id_usuario = $_GET['id_usuario']; //tomamos la variable id_usuario
 
 $query = "select * from usuario where id_usuario=".$id_usuario;
 
-
 $resultado = mysqli_query($bd, $query);
 
 
@@ -31,10 +30,18 @@ echo ' <br><br> <table border = "1"> <tr>
         <td> Spam </td>
         
      </tr>';
+     
 
 
      $row = mysqli_fetch_array($resultado); //toma una fila de la base de datos
-     
+
+     //Ponemos en notación normal la fecha
+     $fecha = $row['fecha_nacimiento'];
+     $fecha_array = explode('-', $fecha);
+     $fecha = $fecha_array[2].'/'.$fecha_array[1].'/'.$fecha_array[0];
+
+
+
      echo '<tr> ';
      echo '<td>'.$row['id_usuario'].'</td>';
      echo '<td>'.$row['nombre'].'</td>';
@@ -43,7 +50,7 @@ echo ' <br><br> <table border = "1"> <tr>
 
      echo '<td>'.$row['email'].'</td>';
      echo '<td>'.$row['clave'].'</td>';
-     echo '<td>'.$row['fecha_nacimiento'].'</td>';
+     echo '<td>'.$fecha.'</td>';
      echo '<td>'.$row['telefono'].'</td>';
      echo '<td>'.$row['direccion'].'</td>';
      echo '<td>'.$row['ciudad'].'</td>';
@@ -52,7 +59,5 @@ echo ' <br><br> <table border = "1"> <tr>
  
      echo '</tr> ';
      echo '</table>';
- 
-
 
 ?>

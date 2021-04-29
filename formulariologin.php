@@ -17,21 +17,21 @@
   <body>
   
   
-    <form class = "formulario" action = "introduce_clientes.php" method = "POST"> <!-- FALTA EL ACTION --> 
+    <form class = "formulario" action = "inicio_sesion.php" method = "POST"> 
 
         <fieldset id = identificate>
 
             <legend> Identifícate </legend>
 
-            Usuario:  <input id = user type = text name = usuario placeholder = "Introduce tu usuario"/> <br/>
-            Contraseña: <input type=text name = clave placeholder = "Introduce tu contraseña"/> <br/><br/>
+            Usuario:  <input id = "user" type = "text" name = "usuario" placeholder = "Introduce tu usuario"/> <br/>
+            Contraseña: <input type = "password" name = "clave" placeholder = "Introduce tu contraseña"/> <br/><br/> <!-- Al poner type = "password" consigo que salgan puntitos en vez del texto -->
 
             <input type = "submit" value = "Iniciar Sesión">
         </fieldset>
 
     </form> <br/>
 
-    <div class = registrarse> 
+    <div class = "registrarse"> 
         
         ¿No estás registrado?
 
@@ -39,7 +39,7 @@
 	
     </div>
 
-    <img class = "fondo"src = "imagenes/logo.png">
+    <img class = "fondo" src = "imagenes/logo.png">
 
     <script src = "tienda.js"> </script>
 

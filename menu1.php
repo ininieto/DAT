@@ -14,9 +14,9 @@
         </button>
         
           <div class = "dropdown-content">
-            <a href = "vinilos.php" id = "vinilos">Vinilos</a>
-            <a href = "discos.html" id = "CDs">CD´s</a>
-            <a href = "blu-ray.html" id = "Blu-ray">Blu-Ray</a>
+            <a href = "compra.php?categoria=vinilo" id = "vinilos">Vinilos</a>
+            <a href = "compra.php?categoria=CD" id = "CDs">CD´s</a>
+            <a href = "compra.php?categoria=Blue-ray" id = "Blu-ray">Blu-Ray</a>
           </div>
         
         </div>

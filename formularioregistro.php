@@ -44,8 +44,8 @@
 
             <label>Nombre de usuario: </label> <input type = "text" name = "usuario" /> <br/>
             <label>Correo electrónico: </label> <input type = "text" name = "email" placeholder = "ejemplo@dominio.com" /> <br/>
-            <label>Contraseña: </label> <input type = "text" name = "clave" placeholder = "*******" /> <br/>
-            <label>Repita su contraseña: </label> <input type = "text" name = "clave2" placeholder = "*******" /> <br/>
+            <label>Contraseña: </label> <input type = "password" name = "clave" placeholder = "*******" /> <br/>
+            <label>Repita su contraseña: </label> <input type = "password" name = "clave2" placeholder = "*******" /> <br/>
 			
 			
 			

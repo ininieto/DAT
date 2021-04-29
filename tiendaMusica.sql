@@ -27,7 +27,7 @@ create table producto(
 	titulo char(255) not null,
 	categoria char (100) not null, /* cd, vinilo, blu-ray... */
 	descripcion text not null, 
-	precio float(6, 2),
+	precio float(6, 2) not null,
 	autor char(255) not null,
 	imagen char(200) not null /* Ruta de la imagen */
 );

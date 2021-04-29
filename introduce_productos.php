@@ -22,10 +22,10 @@ $autor = trim($autor);
 $imagen = trim($imagen);
 
 
-// if(!$nombre || !$apellidos || !$fecha_nacimiento){
-    // echo "faltan los obligatorios";
-    // exit;
-// }
+ if(!$titulo || !$categoria || !$descripcion || !$precio || !$autor || !$imagen){
+    echo "faltan los obligatorios";
+    exit;
+ }
 
 $titulo = addcslashes($titulo);
 $categoria = addslashes($categoria);

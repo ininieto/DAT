@@ -53,7 +53,7 @@ if(strlen($telefono) != 9){
     exit;
 }
 
-// falta ordenar la fecha de nacimiento, que me tengo que ir a clase :)
+
 
 $nombre = addslashes($nombre);
 $apellidos = addslashes($apellidos);
@@ -71,14 +71,14 @@ include('conexion_bbdd.php');
 
 $query = "insert into usuario values (null, '".$nombre . "', '".$apellidos . "', '".$usuario . "', '".$email . "', '".$clave . "', '".$fecha_nacimiento . "', '".$telefono . "', '".$direccion . "', '".$ciudad . "', 2,  '".$spam ."')";
 
-echo "<br>" . $query . "<br>";
-
 $resultado = mysqli_query($bd, $query);
 
 if($resultado){
 
-    echo "<script> alert('Registrado con éxito') </script>";
-    header('Location: index.php'); 
+    echo'<script type="text/javascript">
+    alert("¡Usuario registrado con éxito!");
+    window.location.href="index.php";
+    </script>';
 
 }
 else{
