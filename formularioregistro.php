@@ -19,7 +19,7 @@
     <body>
 
 	
-        <form class = "formulario" action = "introduce_usuario.php" method = "POST" > <!-- falta el action -->
+        <form class = "formulario" action = "introduce_usuario.php" method = "POST" > 
 
         <fieldset class = "registro">
 

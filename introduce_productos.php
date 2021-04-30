@@ -27,18 +27,17 @@ $imagen = trim($imagen);
     exit;
  }
 
-$titulo = addcslashes($titulo);
+$titulo = addslashes($titulo);
 $categoria = addslashes($categoria);
-$descripcion = addcslashes($descripcion);
-$precio= addcslashes($precio);
-$autor = addcslashes($autor);
-$imagen = addcslashes($imagen);
+$descripcion = addslashes($descripcion);
+$precio= addslashes($precio);
+$autor = addslashes($autor);
+$imagen = addslashes($imagen);
 
 include('conexion_bbdd.php');
 
-$query = "insert into producto values (null, '".$titulo . "', '".$categoria . "', '".$descripcion . "', '".$precio . "', '".$autor . "', '".$imagen . "');
+$query = "insert into producto values (null, '".$titulo . "', '".$categoria . "', '".$descripcion . "', '".$precio . "', '".$autor . "', '".$imagen . "')";
 
-echo "<br>" . $query . "<br>";
 
 $resultado = mysqli_query($bd, $query);
 

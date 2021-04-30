@@ -1,116 +1,65 @@
 <?php
 
+
+
 include('header.php');
 include('menu1.php');
-
 include('conexion_bbdd.php');
-
 
 $id_usuario = $_GET['id_usuario']; //tomamos la variable id_usuario
 
-$query = "select * from usuario where id_usuario=" . $id_usuario;
+$query = "select * from usuario where id_usuario=".$id_usuario;
 
 $resultado = mysqli_query($bd, $query);
 
-
-echo ' <br><br> <table border = "1"> <tr> 
-
-        <td> ID usuario </td>
-        <td> Nombre </td>
-        <td> Apellidos </td>
-        <td> Nombre de usuario </td>
-
-        <td> Correo electrónico </td>
-        <td> Contraseña </td>
-        <td> Fecha de Nacimiento </td>
-        <td> Teléfono </td>
-        <td> Dirección </td>
-        <td> Ciudad </td>
-        <td> Administrador </td>
-        <td> Spam </td>
-        
-     </tr>';
-
-
-
 $row = mysqli_fetch_array($resultado); //toma una fila de la base de datos
 
-
-$id_usuario = $row['id_usuario'];
-$nombre = $row['nombre'];
-$apellidos = $row['apellidos'];
-$usuario = $row['usuario'];
-$email = $row['email'];
-$clave = $row['clave'];
-$fecha = $row['fecha_nacimiento'];
-$telefono = $row['telefono'];
-$direccion = $row['direccion'];
-$ciudad = $row['ciudad'];
-$privilegio = $row['privilegio'];
-$spam = $row['spam'];
-
 //Ponemos en notación normal la fecha
-
+$fecha = $row['fecha_nacimiento'];
 $fecha_array = explode('-', $fecha);
-$fecha = $fecha_array[2] . '/' . $fecha_array[1] . '/' . $fecha_array[0];
+$fecha = $fecha_array[2].'/'.$fecha_array[1].'/'.$fecha_array[0];
 
-
-
-echo "<tr id = 'resultados'> ";
-echo "<td id = 'button0' title = '$id_usuario' >" .$id_usuario . "</td>";
-echo "<td id = 'button1' title = '$nombre' >" . $nombre . "</td>";
-echo "<td id = 'button2' title = '$apellidos'>" . $apellidos . "</td>";
-echo "<td id = 'button3' title = '$usuario'>" . $usuario . "</td>";
-
-echo "<td id = 'button4' title = '$email'>" . $email . "</td>";
-echo "<td id = 'button5' title = '$clave'>" . $clave . "</td>";
-echo "<td id = 'button6' title = '$fecha'>" . $fecha . "</td>";
-echo "<td id = 'button7' title = '$telefono'>" . $telefono . "</td>";
-echo "<td id = 'button8' title = '$direccion'>" . $direccion . "</td>";
-echo "<td id = 'button9' title = '$ciudad'>" . $ciudad . "</td>";
-echo "<td id = 'button10' title = '$privilegio'>" . $privilegio . "</td>";
-echo "<td id = 'button11' title = '$spam'>" . $spam . "</td>";
-
-echo '</tr> ';
-echo '</table>';
 
 ?>
 
-<html>
-    <p id = "hueco"> </p> <!-- Huequín para escribir el valor de cada casilla durante el desarrollo -->
-</html>
+<form class = "formulario" action = "editar_usuario_bd.php" method = "POST" > 
 
-<script>
-    let id = [];
-    let button = [];
+<fieldset class = "registro">
 
-    /* Pongo los event listeners a las casillas de la tabla */
+    <input type = "hidden" name = "id_usuario"  value = "<?php echo $row['id_usuario']; ?>"/> 
 
-    for (let i = 0; i < 12; i++) {
-        let str1 = "button";
+    <legend> Datos Personales </legend>
 
-        id[i] = str1 + i.toString(); // Concateno "button" y cada numero
+    <label>Nombre: </label> <input type = "text" name = "nombre" placeholder = "Escriba su Nombre" value = "<?php echo $row['nombre']; ?>"/> <br/>
+    <label>Apellidos:</label> <input type = "text" name = "apellidos" placeholder = "Escriba sus Apellidos" value = "<?php echo $row['apellidos']; ?>"/> <br/> <br>
+    
+    <label> Fecha de Nacimiento:</label> <input type = "text" name = "fecha_nacimiento" placeholder="Año-Mes-Día" value = "<?php echo $row['fecha_nacimiento']; ?>"/> <br> <br>
 
-        button[i] = document.getElementById(id[i]);
+    <label>Teléfono: </label> <input type = "number" name = "telefono" placeholder = "Escriba su Teléfono"  maxlength = "9" max = "999999999" value = "<?php echo $row['telefono']; ?>"/> <br/>
+    <label>Ciudad:</label> <input type = "text" name = "ciudad" placeholder = "Escriba su Ciudad" value = "<?php echo $row['ciudad']; ?>"/> <br/>
+    <label>Dirección:</label> <input type = "text" name = "direccion" placeholder = "Escriba su Dirección" value = "<?php echo $row['direccion']; ?>"/> <br/>
+    
 
-        button[i].addEventListener("click", () => {
-            // probando las arrow functions :)
+</fieldset> <br/>
 
-            document.getElementById("hueco").innerHTML = button[i].title;
-        });
+<fieldset class = "registro">
 
-        button[i].addEventListener("mouseover", () => {
-            // función que resalta el fondo de la casilla sobre la que está el ratón
+    <legend> Registro </legend>
 
-            button[i].style.background = "rgb(255, 255, 255)";
-            button[i].style.color = "rgb(0, 0, 0 )";
-        });
 
-        button[i].addEventListener("mouseleave", () => {
-            // función que restaura el color de fondo cuando quitas el ratón
+    <label>Nombre de usuario: </label> <input type = "text" name = "usuario" value = "<?php echo $row['usuario']; ?>" /> <br/>
+    <label>Correo electrónico: </label> <input type = "text" name = "email" placeholder = "ejemplo@dominio.com" value = "<?php echo $row['email']; ?>" /> <br/>
+    <label>Contraseña: </label> <input type = "text" name = "clave" placeholder = "*******" value = "<?php echo $row['clave']; ?>"/> <br/>
 
-            button[i].style.background = "rgb(0, 0, 0 )";
-            button[i].style.color = "rgb(255, 255, 255)";
-        });
-    }
-</script>
+</fieldset> <br/>
+
+<p id = "texto">¿Quiere recibir notificaciones?: <br>
+    <input type="radio" name = "spam" value = "si" > Sí <br>
+    <input type="radio" name = "spam" value = "no"> No <br> </p>
+
+<input type = "hidden" name = "id_usuario"  value = "<?php echo $row['id_usuario']; ?>"/> 
+
+
+<input type = "submit" value = "Editar Mis Datos"/> 
+
+</form>

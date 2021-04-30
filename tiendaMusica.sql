@@ -40,6 +40,6 @@ create table pedido(
 	id_cliente int unsigned not null,
 	id_producto int unsigned not null,
 	cantidad int unsigned not null,
-	coste_total float(8,2),
+	coste_total float(8,2) not null,
 	fecha_compra date not null
 );

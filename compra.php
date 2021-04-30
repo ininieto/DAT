@@ -1,14 +1,13 @@
-
 <html>
 
 <head>
 
-	<title> La Casa Del Disco </title>
-	<?php 
-		include('header.php'); 
-		include('menu1.php'); 
-	?>
-	
+  <title> La Casa Del Disco </title>
+  <?php
+  include('header.php');
+  include('menu1.php');
+  ?>
+
 </head>
 
 <?php
@@ -24,36 +23,54 @@ $resultado = mysqli_query($bd, $query);
 
 $num = mysqli_num_rows($resultado); //numero de resultados
 
-for($i = 0; $i < $num; $i++){
+for ($i = 0; $i < $num; $i++) {
 
-    $row = mysqli_fetch_array($resultado); //toma una fila de la base de datos
+  $row = mysqli_fetch_array($resultado); //toma una fila de la base de datos
 
-    $titulo = $row['titulo'];
-    $descripcion = $row['descripcion'];
-    $precio = $row['precio'];
-    $autor = $row['autor'];
-    $imagen = $row['imagen'];
+  $id_producto = $row['id_producto'];
+  $titulo = $row['titulo'];
+  $descripcion = $row['descripcion'];
+  $precio = $row['precio'];
+  $autor = $row['autor'];
+  $imagen = $row['imagen'];
 
-    if($categoria == $row['categoria']){
+  $texto = "<html>   <figure class = 'producto' >
+
+    <img  width = '200' class = 'foto' src = 'imagenes/$imagen'>
+
+
+     <br><br>" . $precio . "$
      
-      echo "<figure class = 'producto' >";
+     <form class = 'formulario' action = 'introduce_pedido.php' method = 'POST'>
+     
+     Usuario:  <input id = 'user' type = 'text' name = 'usuario' placeholder = 'Introduce tu usuario'/> <br/>
+     Contraseña: <input type = 'password' name = 'clave' placeholder = 'Introduce tu contraseña'/> <br/><br/> 
+     
+     <input type = 'hidden' name = 'id_producto' value = '$id_producto'/>
+     <input type = 'hidden' name = 'precio' value = '$precio'/>
+     
+     Cantidad: <input type = 'number' name = 'cantidad' /> <br/><br/> 
 
-      echo "<img  width = '200' class = 'foto' src = 'imagenes/$imagen'>";
+
+     <input type = 'submit' value = 'COMPRAR'>
+     
+     </form>
+     
+     </figcaption> 
+
+     </figure></html>";
 
 
-      echo " <br> 10,99 $ <br/>";
-      echo " COMPRAR </figcaption> ";
+  if ($categoria == $row['categoria']) {
 
-      echo " </figure>";
-   
-    }
-
+    echo $texto;
+  }
 }
 
 ?>
-    <script src = "tienda.js"> </script>
-	
-  </body>
-	
-	
+<script src="tienda.js"> </script>
+
+</body>
+
+
 </html>

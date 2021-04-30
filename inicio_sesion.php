@@ -3,6 +3,7 @@
 
 include('header.php');
 include('menu1.php');
+include('conexion_bbdd.php');
 
 //tomamos lo que ha introducido el usuario
 @ $usuario = $_POST['usuario'];
@@ -19,29 +20,27 @@ if(!$usuario || !$clave){
     exit;
 }
 
+@ $query = "select * from usuario where usuario = '".$usuario."' &&  clave = '".$clave."'";
 
-include('conexion_bbdd.php');
+@ $resultado = mysqli_query($bd, $query);
 
-$query = "select * from usuario";
+@ $num = mysqli_num_rows($resultado); //numero de resultados
 
-$resultado = mysqli_query($bd, $query);
-
-$num = mysqli_num_rows($resultado); //numero de resultados
-
-for($i = 0; $i < $num; $i++){
-
-    $row = mysqli_fetch_array($resultado); //toma una fila de la base de datos
-
-   if($usuario === $row['usuario'] && $clave === $row['clave']){ // el triple = comprueba que el tipo de dato también coincida
-       echo '<br>Bienvenido/a, '.$usuario;
-       exit;
-   }
-}
-
-echo'<script type="text/javascript">
+if($num == 0){
+    echo'<script type="text/javascript">
     alert("El usuario o la contraseña son incorrectos");
     window.location.href="formulariologin.php";
     </script>';
+}
+else{
+    echo'<script type="text/javascript">
+    alert("Bienvenido/a, '.$usuario.'");
+    window.location.href="formulariologin.php";
+    </script>';
+}
+
+
+
 
 
 ?>
