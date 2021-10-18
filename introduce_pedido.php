@@ -58,14 +58,14 @@ $row = mysqli_fetch_array($resultado); //toma una fila de la base de datos
 $id_usuario = $row['id_usuario'];
 
 
-$coste_total = $cantidad * $precio;
+$coste_total = intval($cantidad) * $precio;
 
 
 $fecha_array = getdate();
 $fecha_compra = $fecha_array['year']."-".$fecha_array['mon']."-".$fecha_array['mday'];
 
 
-$query = "insert into pedido values (null, '".$id_usuario . "', '".$id_producto . "', '".$cantidad . "', '".$coste_total . "', '".$fecha_compra . "')";
+$query = "insert into pedido values (null, ".$id_usuario . ", ".$id_producto . ", ".$cantidad . ", ".$coste_total . ", '".$fecha_compra . "')";
 $resultado = mysqli_query($bd, $query);
 
 if($resultado){

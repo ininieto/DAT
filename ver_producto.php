@@ -1,9 +1,8 @@
 <?php
 
+//Fichero para ver tan sólo el producto elegido
 
-
-include('header.php');
-include('menu1.php');
+include('menuAdmin.php'); //Aquí habrá que poner menuAdmin
 include('conexion_bbdd.php');
 
 $id_producto = $_GET['id_producto']; //tomamos la variable id_producto

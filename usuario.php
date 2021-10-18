@@ -1,9 +1,7 @@
 <?php
 
 //fichero para sacar nombres por pantalla
-
-include('header.php');
-include('menu1.php');
+include('menuAdmin.php');
 include('conexion_bbdd.php');
 
 $query = "select * from usuario";

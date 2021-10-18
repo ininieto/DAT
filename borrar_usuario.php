@@ -1,9 +1,7 @@
 <?php
 
 
-
-include('header.php');
-include('menu1.php');
+include('menuAdmin.php');
 include('conexion_bbdd.php');
 
 $id_usuario = $_GET['id_usuario']; //tomamos la variable id_usuario

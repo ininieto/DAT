@@ -1,9 +1,9 @@
 <?php
 
-@ $bd= mysqli_connect('localhost', 'root', '', 'dat003'); //realiza la conexion a la base de datos
+@ $bd= mysqli_connect('localhost', 'root', '', 'dat003');
 
-if(!$bd){ //si no se ha podido conectar
-
+if(!$bd)
+{
     echo "mal el servidor";
     exit;
 }

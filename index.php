@@ -6,7 +6,8 @@
 	<title> La Casa Del Disco </title>
 	<?php 
 		include('header.php'); 
-		include('menu1.php'); 
+		include('menu1.php');
+		include('calendario.php');
 	?>
 	
 </head>
@@ -32,4 +33,4 @@
 </body>
 
 
-</html>
+</html>	

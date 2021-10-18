@@ -1,26 +1,30 @@
 <?php
 
-//fichero para sacar nombres por pantalla
+//fichero para sacar todos los productos por pantalla
 
-include('header.php');
-include('menu1.php');
+include('menuAdmin.php');
 include('conexion_bbdd.php');
 
+
+
 $query = "select * from producto";
+
 
 $resultado = mysqli_query($bd, $query);
 
 $num = mysqli_num_rows($resultado); //numero de resultados
 
-echo ' <br><br> <table border = "1"> <tr> 
+//echo 'el numero de resultados es '.$num.'<br>';
+
+echo ' <table border = "1"> <tr> 
 
         <td> Título </td>
         <td> Categoría </td>
         <td> Descripción </td>
         <td> Autor </td>
         <td> Precio </td>
-        
-        <td> Ver </td>
+		
+		<td> Ver </td>
         <td> Editar </td>
         <td> Borrar </td>
         
@@ -35,8 +39,8 @@ for($i = 0; $i < $num; $i++){
     echo '<td>'.$row['descripcion'].'</td>';
     echo '<td>'.$row['autor'].'</td>';
     echo '<td>'.$row['precio'].' $'.'</td>';
-
-    echo'<td> <a href = "ver_producto.php?id_producto='.$row['id_producto'].'"> Ver </a> </td>';
+	
+	echo'<td> <a href = "ver_producto.php?id_producto='.$row['id_producto'].'"> Ver </a> </td>';
     echo'<td> <a href = "editar_producto.php?id_producto='.$row['id_producto'].'"> Editar </a> </td>';
     echo'<td> <a href = "borrar_producto.php?id_producto='.$row['id_producto'].'"> Borrar </a> </td>';
 

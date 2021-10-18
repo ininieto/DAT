@@ -1,22 +1,25 @@
 <?php
 
-include('menuAdmin.php');
+include('header.php');
+include('menu1.php');
 
 
-@ $nombre = $_POST['nombre'];
-@ $apellidos = $_POST['apellidos'];
-@ $fecha_nacimiento = $_POST['fecha_nacimiento'];
-@ $telefono = $_POST['telefono'];
-@ $ciudad = $_POST['ciudad'];
-@ $direccion = $_POST['direccion'];
-@ $usuario = $_POST['usuario'];
-@ $email = $_POST['email'];
-@ $clave = $_POST['clave'];
-@ $clave2 = $_POST['clave2'];
-@ $spam = $_POST['spam'];
-
+ $nombre = $_POST['nombre'];
+ $apellidos = $_POST['apellidos'];
+ $fecha_nacimiento = $_POST['fecha_nacimiento'];
+ $telefono = $_POST['telefono'];
+ $ciudad = $_POST['ciudad'];
+ $direccion = $_POST['direccion'];
+ $usuario = $_POST['usuario'];
+ $email = $_POST['email'];
+ $clave = $_POST['clave'];
+ $clave2 = $_POST['clave2'];
+ $spam = $_POST['spam'];
+ 
+ 
  $fecha_array = explode('/', $fecha_nacimiento);
  $fecha_nacimiento = $fecha_array[2].'-'.$fecha_array[1].'-'.$fecha_array[0];
+ 
 
 $nombre = trim($nombre);
 $apellidos = trim($apellidos);
@@ -33,7 +36,10 @@ $spam = trim($spam);
 //Comprobamos que los datos introducidos son correctos
 if(!$nombre || !$apellidos ||!$usuario ||!$email ||
    !$clave ||!$fecha_nacimiento ||!$direccion ||!$ciudad){     
-    echo 'faltan los obligatorios';
+    echo'<script type="text/javascript">
+    alert("¡Faltan datos obligatorios!");
+    window.location.href="formularioregistro.php";
+    </script>';
     exit;
 }
 
@@ -72,15 +78,13 @@ include('conexion_bbdd.php');
 
 $query = "insert into usuario values (null, '".$nombre . "', '".$apellidos . "', '".$usuario . "', '".$email . "', '".$clave . "', '".$fecha_nacimiento . "', '".$telefono . "', '".$direccion . "', '".$ciudad . "', 2,  '".$spam ."')";
 
-
-
 $resultado = mysqli_query($bd, $query);
 
 if($resultado){
 
     echo'<script type="text/javascript">
     alert("¡Usuario registrado con éxito!");
-    window.location.href="formularioregistroAdmin.php";
+    window.location.href="index.php";
     </script>';
 
 }
@@ -90,5 +94,4 @@ else{
     window.location.href="usuario.php";
     </script>';
 }
-
 ?>

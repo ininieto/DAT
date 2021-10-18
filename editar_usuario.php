@@ -2,8 +2,8 @@
 
 
 
-include('header.php');
-include('menu1.php');
+
+include('menuAdmin.php');
 include('conexion_bbdd.php');
 
 $id_usuario = $_GET['id_usuario']; //tomamos la variable id_usuario
@@ -22,7 +22,7 @@ $fecha = $fecha_array[2].'/'.$fecha_array[1].'/'.$fecha_array[0];
 
 ?>
 
-<form class = "formulario" action = "editar_usuario_bd.php" method = "POST" > 
+<br><form class = "formulario" action = "editar_usuario_bd.php" method = "POST" > 
 
 <fieldset class = "registro">
 
@@ -53,11 +53,44 @@ $fecha = $fecha_array[2].'/'.$fecha_array[1].'/'.$fecha_array[0];
 
 </fieldset> <br/>
 
-<p id = "texto">¿Quiere recibir notificaciones?: <br>
-    <input type="radio" name = "spam" value = "si" > Sí <br>
-    <input type="radio" name = "spam" value = "no"> No <br> </p>
+<?php
 
-<input type = "hidden" name = "id_usuario"  value = "<?php echo $row['id_usuario']; ?>"/> 
+$spam = $row['spam'];
+$id_usuario = $row['id_usuario'];
+$privilegio = $row['privilegio'];
+
+if($spam == 1){
+
+    echo '<p id = "texto">¿Quiere recibir notificaciones?: <br>
+    <input type="radio" name = "spam" value = "si" checked> Sí <br>
+    <input type="radio" name = "spam" value = "no"> No <br> </p>';
+
+
+} else{
+
+    echo '<p id = "texto">¿Quiere recibir notificaciones?: <br>
+    <input type="radio" name = "spam" value = "si" > Sí <br>
+    <input type="radio" name = "spam" value = "no" checked> No <br> </p>';
+
+}
+
+if($privilegio == 1){
+
+    echo '<p id = "texto"> Administrador: <br>
+    <input type="radio" name = "privilegio" value = "si" checked> Sí <br>
+    <input type="radio" name = "privilegio" value = "no"> No <br> </p>';
+
+} else{
+
+    echo '<p id = "texto">Administrador: <br>
+    <input type="radio" name = "privilegio" value = "si" > Sí <br>
+    <input type="radio" name = "privilegio" value = "no" checked> No <br> </p>';
+
+}
+
+?>
+
+
 
 
 <input type = "submit" value = "Editar Mis Datos"/> 

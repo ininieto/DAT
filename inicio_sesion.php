@@ -1,7 +1,6 @@
 <?php 
 
 
-include('header.php');
 include('menu1.php');
 include('conexion_bbdd.php');
 
@@ -33,14 +32,18 @@ if($num == 0){
     </script>';
 }
 else{
-    echo'<script type="text/javascript">
-    alert("Bienvenido/a, '.$usuario.'");
-    window.location.href="formulariologin.php";
-    </script>';
+    //el usuario existe: comprobamos si es admin
+
+    $row = mysqli_fetch_array($resultado); //toma una fila de la base de datos
+
+    if($row['privilegio'] == 1){
+        header ('Location: menuAdmin.php');
+	
+    }
+    else{
+		header ('Location: index.php');
+    }
 }
-
-
-
 
 
 ?>

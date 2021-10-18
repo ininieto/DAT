@@ -16,6 +16,7 @@ include('conexion_bbdd.php');
 @ $email = $_POST['email'];
 @ $clave = $_POST['clave'];
 @ $spam = $_POST['spam'];
+@ $privilegio = $_POST['privilegio'];
 
 
 $id_usuario = trim($id_usuario);
@@ -29,6 +30,7 @@ $usuario = trim($usuario);
 $email = trim($email);
 $clave = trim($clave);
 $spam = trim($spam);
+$privilegio = trim($privilegio);
 
 //El arroba hace que no salgan problemas feos 
 //es como el supress warnings
@@ -47,6 +49,17 @@ if(strcmp($spam, "si") == 0){
 else if(strcmp($spam, "no") == 0){
     $spam = 2;
 }
+
+if(strcmp($privilegio, "si") == 0){
+    $privilegio = 1;
+}
+else if(strcmp($privilegio, "no") == 0){
+    $privilegio = 2;
+}
+
+
+
+
 else{
     echo'<script type="text/javascript">
     alert("El campo de SPAM deberá ser 1 para recibir notificaciones y 2 para no");
@@ -71,6 +84,8 @@ $usuario = addslashes($usuario);
 $email = addslashes($email);
 $clave = addslashes($clave);
 $spam = addslashes($spam);
+$privilegio = addslashes($privilegio);
+
 
 
 include('conexion_bbdd.php');
@@ -78,8 +93,8 @@ include('conexion_bbdd.php');
 $query = "UPDATE usuario  SET id_usuario = '".$id_usuario."', nombre = '".$nombre."', 
           apellidos = '".$apellidos."', fecha_nacimiento = '".$fecha_nacimiento."',
           telefono = '".$telefono."', ciudad = '".$ciudad."', direccion = '".$direccion."',
-          usuario = '".$usuario."', email = '".$email."', clave = '".$clave."', spam = '".$spam."' 
-          WHERE id_usuario = '$id_usuario' ";
+          usuario = '".$usuario."', email = '".$email."', clave = '".$clave."', spam = '".$spam."', privilegio = '".$privilegio."' 
+          WHERE id_usuario =" .$id_usuario ; 
 
 
 $resultado = mysqli_query($bd, $query);
@@ -94,7 +109,7 @@ if($resultado){
 }
 else{
     echo'<script type="text/javascript">
-    alert("Algo no ha ido bien. or favor, vuelva a intentarlo");
+    alert("Algo no ha ido bien. Por favor, vuelva a intentarlo");
     window.location.href="usuario.php";
     </script>';
 }

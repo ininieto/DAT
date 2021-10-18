@@ -15,9 +15,10 @@
 
 include('conexion_bbdd.php');
 
-$categoria = $_GET['categoria']; //tomamos la variable categoria
 
-$query = "select * from producto ";
+$id_producto = $_GET['id_producto'];
+
+$query = "select * from producto where id_producto ='".$id_producto."'";
 
 $resultado = mysqli_query($bd, $query);
 
@@ -61,11 +62,9 @@ for ($i = 0; $i < $num; $i++) {
      </figure></html>";
 
 
-  if ($categoria == $row['categoria']) {
-
-    echo $texto;
-  }
-
+if($id_producto == $row['id_producto']){
+	  echo $texto;
+}
 }
 
 ?>

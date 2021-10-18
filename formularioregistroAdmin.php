@@ -5,8 +5,7 @@
         <title> Registro </title>
         
 		<?php 
-		include('header.php'); 
-		include('menu1.php'); 
+		include('menuAdmin.php'); 
 		?>
 	
     </head>
@@ -14,13 +13,13 @@
 
     <body>
 
-        <form class = "formulario" action = "registro.php" method = "POST" >
+        <br><form class = "formulario" action = "introduce_usuario.php" method = "POST" >
 
         <fieldset class = "registro">
 
             <legend> Datos Personales </legend>
 
-            <label>Nombre: </label> <input type = "text" name = "nombre" placeholder = "Escriba su Nombre" maxlength = "50"/> <br/>
+			<label>Nombre: </label> <input type = "text" name = "nombre" placeholder = "Escriba su Nombre" maxlength = "50"/> <br/>
             <label>Apellidos:</label> <input type = "text" name = "apellidos" placeholder = "Escriba sus Apellidos" maxlength= "10"/> <br/> <br>
             
             <label> Fecha de Nacimiento:</label> <input type = "text" name = "fecha_nacimiento" placeholder="Día/Mes/Año"/ maxlength = "50"> <br> <br>
@@ -36,29 +35,27 @@
 
             <legend> Registro </legend>
 
-
-            <label>Nombre de usuario: </label> <input type = "text" name = "usuario" placeholder = "Introduzca el nombre de usuario" / maxlength="50"> <br/>
-            <label>Correo electrónico: </label> <input type = "text" name = "email" placeholder = "ejemplo@dominio.com" maxlength="50"/> <br/>
-            <label>Contraseña: </label> <input type = "password" name = "clave" placeholder = "*******" / maxlength="20"> <br/>
-            <label>Repita su contraseña: </label> <input type = "password" name = "clave2" placeholder = "*******" maxlength = "20"/> <br/>
+			<label>Nombre de usuario: </label> <input type = "text" name = "usuario" placeholder = "Introduzca el nombre de usuario" /> <br/>
+            <label>Correo electrónico: </label> <input type = "text" name = "email" placeholder = "ejemplo@dominio.com" /> <br/>
+            <label>Contraseña: </label> <input type = "text" name = "clave" placeholder = "*******" /> <br/>
+            <label>Repita su contraseña: </label> <input type = "text" name = "clave2" placeholder = "*******" /> <br/>
 			
 			
 			
         </fieldset> <br/>
 
-        <p id = "texto"> ¿Quiere recibir notificaciones?: <br>
+        <p id = "texto">¿Quiere recibir notificaciones?: <br>
          <input type="radio" name = "spam"> Sí <br>
          <input type="radio" name = "spam"> No <br> </p>
 
 
-        <input type = "submit" value = "Registrarme"/> 
+        <input type = "submit" value = "Introducir nuevo Usuario"/> 
         <input type = "reset" value = "Borrar"/>
 		
 		</form>
 		
 		
 
-    <img class = "fondo" src = "imagenes/logo.png">
 
     <script src = "tienda.js"> </script>
 

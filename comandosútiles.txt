@@ -1,0 +1,38 @@
+ir a C:\wamp64\bin\mysql\mysql5.7.31\bin y abrir un cmd
+
+-> mysql -u root
+
+->show databases;
+
+->use dat003;
+
+-> show tables;
+una vez dentro de una base de datos, describe ""
+
+select * from usuario;
+
+drop table ...
+
+Para conectarnos: 
+http://localhost/DAT/index.php
+
+Primero hay que ir a la ruta C:\wamp\bin\mysql\mysql5.5.24\bin>mysql, y abrir ahí la cmd
+
+Después:
+mysql -u root
+show databases;
+use dat003;
+show tables;
+
+drop database dat003 para borrar anterior,
+
+
+
+
+
+
+
+
+
+
+
